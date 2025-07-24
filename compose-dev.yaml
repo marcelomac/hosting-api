@@ -1,0 +1,6 @@
+services:
+  nest:
+    image: marceloamac/lord-api_nest:latest
+    build:
+      context: .
+      dockerfile: ./Dockerfile

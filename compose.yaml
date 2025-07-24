@@ -1,0 +1,37 @@
+services:
+  postgres:
+    image: postgres:15.3
+    container_name: lord_db
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - '5432:5432'
+    volumes:
+      - pgdata:/data/postgres
+    networks:
+      - debian_serv_network
+  nest:
+    image: marceloamac/lord-api_nest:latest
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: lord_api
+    ports:
+      - '3001:3001'
+    environment:
+      DATABASE_URL: postgres://admin:pgpwd!@lord_db:5432/lord
+    depends_on:
+      - postgres
+    networks:
+      - debian_serv_network
+
+volumes:
+  pgdata:
+    driver: local
+
+networks:
+  debian_serv_network:
+    driver: bridge

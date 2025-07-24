@@ -1,0 +1,29 @@
+select "number", "annotation", SUBSTRING("number",1,2), SUBSTRING("number",3,3) 
+from "Moviment"
+where SUBSTRING("number",1,2) = '24'
+
+UPDATE "Moviment" set "number" = '44'|| SUBSTRING("number",3,3)
+where SUBSTRING("number",1,2) = '24'
+
+select "number", "annotation", SUBSTRING("number",1,2), SUBSTRING("number",3,3) 
+from "Moviment"
+where SUBSTRING("number",1,2) = '44'
+
+------
+select "number", "annotation", SUBSTRING("number",1,2), SUBSTRING("number",3,3) 
+from "Moviment"
+where SUBSTRING("number",1,2) = '00'
+
+UPDATE "Moviment" set "number" = '24'|| SUBSTRING("number",3,3)
+where SUBSTRING("number",1,2) = '00'
+
+select "number", "annotation", SUBSTRING("number",1,2), SUBSTRING("number",3,3) 
+from "Moviment"
+where SUBSTRING("number",1,2) = '24'
+
+------
+
+
+
+
+

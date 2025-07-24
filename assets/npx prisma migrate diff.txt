@@ -1,0 +1,23 @@
+npx prisma migrate diff --from-url 'postgresql://admin:pgpwd!@192.168.4.21:5432/lord' --to-schema-datamodel ./prisma/schema.prisma --script
+
+
+
+npx prisma migrate diff --from-empty --to-schema-datamodel prisma/schema.prisma --script > prisma/migrations/initial/migration.sql
+
+
+BACKUP COM PG_DUMP:
+PGPASSWORD="pgpwd!" pg_dump -U admin  -h localhost -p 5432 lord > lord_backup.sql
+
+
+- db pull
+- apagar migrations do banco
+- npx prisma migrate resolve --applied .\prisma\migrations\initial\"migration"
+
+
+
+UPDATE "Ordinance" o
+SET 
+  content = o2.content,
+  link = o2.link
+FROM "Ordinance2" o2
+WHERE o.number = o2.number
