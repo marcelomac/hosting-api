@@ -63,24 +63,7 @@ export class DepartmentService {
     return response;
   }
 
-  async findBySimilarName(name: string): Promise<Department | null> {
-    // Query personalizada para usar a função similarity do PostgreSQL
-    const SimilarDepartment = await this.prisma.$queryRaw<SimilarDepartment>`
-    SELECT *, similarity(name, ${name})
-    FROM "Department"
-    ORDER BY similarity(name, ${name}) DESC
-    LIMIT 1;
-  `;
-
-    if (SimilarDepartment.similarity < trigram_pg_similarity_departmentName) {
-      return null;
-    }
-
-    // console.log('devolve o nome mais similar: ', SimilarDepartment[0]);
-    return SimilarDepartment[0];
-  }
-
-  update(id: string, updateDepartmentDto: UpdateDepartmentDto) {
+    update(id: string, updateDepartmentDto: UpdateDepartmentDto) {
     return this.prisma.department.update({
       where: { id },
       data: updateDepartmentDto,

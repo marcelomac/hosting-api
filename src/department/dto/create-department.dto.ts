@@ -15,32 +15,23 @@ export class CreateDepartmentDto {
   @ApiProperty()
   @IsString()
   @IsOptional()
-  folderPath: string;
+  responsibleName: string;
 
   @ApiProperty()
   @IsString()
   @IsOptional()
   description: string;
 
-  @ApiProperty()
-  @IsString()
-  @IsOptional()
-  instructions: string;
 
   @ApiProperty()
   @IsString()
   @IsOptional()
-  phone: string;
+  phone1: string;
 
   @ApiProperty()
   @IsString()
   @IsOptional()
-  ldapGroupName: string;
-
-  @ApiProperty()
-  @IsString()
-  @IsOptional()
-  ldapGroupOU: string;
+  phone2: string;
 
   @IsBoolean()
   active: boolean = true;

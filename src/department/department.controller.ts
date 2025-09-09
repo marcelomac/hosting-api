@@ -45,14 +45,6 @@ export class DepartmentController {
     return null;
   }
 
-  @Get('similar-name')
-  async findBySimilarName(@Body() body: { name: string }) {
-    if (body.name) {
-      return await this.departmentService.findBySimilarName(body.name);
-    }
-    return null;
-  }
-
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.departmentService.findOne(id);
