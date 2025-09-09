@@ -34,11 +34,13 @@ export class VisitController {
     return this.visitService.findVisitById(id);
   }
 
+  @Get()
+  findAll() {
+    return this.visitService.findAll();
+  }
+
   @Patch(':id')
-  update(
-    @Param('id') id: string,
-    @Body() updateVisitDto: UpdateVisitDto,
-  ) {
+  update(@Param('id') id: string, @Body() updateVisitDto: UpdateVisitDto) {
     return this.visitService.update(id, updateVisitDto);
   }
 
@@ -46,5 +48,4 @@ export class VisitController {
   remove(@Param('id') id: string) {
     return this.visitService.remove(id);
   }
-
 }

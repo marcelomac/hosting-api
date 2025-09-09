@@ -24,7 +24,7 @@ export class VisitService {
   async create(createVisitDto: CreateVisitDto) {
     const fixedVisitDto = {
       ...createVisitDto,
-      dateTime: formatISO(parseISO(createVisitDto.dateTime)),
+      date: formatISO(parseISO(createVisitDto.date)),
     };
 
     try {
@@ -62,7 +62,7 @@ export class VisitService {
   update(id: string, updateVisitDto: UpdateVisitDto) {
     const fixedVisitDto = {
       ...updateVisitDto,
-      dateTime: formatISO(parseISO(updateVisitDto.dateTime)),
+      date: formatISO(parseISO(updateVisitDto.date)),
     };
 
     return this.prisma.visit.update({
@@ -76,5 +76,4 @@ export class VisitService {
       where: { id },
     });
   }
-
 }

@@ -3,7 +3,7 @@ import {
   IsNotEmpty,
   IsEmail,
   IsOptional,
-    IsBoolean,
+  IsBoolean,
 } from 'class-validator';
 
 export class CreatePersonDto {
@@ -24,18 +24,10 @@ export class CreatePersonDto {
   sex: string;
 
   @IsString()
-  @IsNotEmpty()
+  @IsOptional()
   phone: string;
-
-  @IsEmail()
-  @IsNotEmpty()
-  email: string;
-
-  @IsBoolean()
-  @IsNotEmpty()
-  password: string;
 
   @IsString()
   @IsOptional()
-  birthdate: string;
+  email: string;
 }

@@ -8,26 +8,29 @@ datasource db {
 }
 
 model Visit {
-  id           String     @id @default(uuid()) @db.Uuid
-  personId     String     @db.Uuid
-  departmentId String     @db.Uuid
-  dateTime     DateTime   @default(now())
+  id           String     @id @default(uuid())
+  personId     String
+  departmentId String
+  date         DateTime   @default(now())
+  timeIn       String
+  timeOut      String?
   notes        String?
+  userId       String?
   createdAt    DateTime   @default(now())
   updatedAt    DateTime   @updatedAt
   Person       Person     @relation(fields: [personId], references: [id])
   Department   Department @relation(fields: [departmentId], references: [id])
+  User         User?      @relation(fields: [userId], references: [id])
 }
 
 model Person {
   id             String   @id @default(cuid())
   name           String
   documentType   String?
-  documentNumber String?  @unique
+  documentNumber String? 
   sex            String
-  phone          String
-  email          String
-  isBlacklisted  Boolean  @default(false)
+  phone          String?
+  email          String?
   createdAt      DateTime @default(now())
   Visit          Visit[]
 }
@@ -54,6 +57,7 @@ model User {
   createdAt DateTime  @default(now())
   Profile   Profile?
   UserLog   UserLog[]
+  Visit     Visit[]
 }
 
 model Profile {

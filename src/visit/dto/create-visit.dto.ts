@@ -21,10 +21,21 @@ export class CreateVisitDto {
 
   @IsDateString()
   @IsNotEmpty()
-  dateTime: string;
+  date: string;
+
+  @IsString()
+  @IsNotEmpty()
+  timeIn: string;
+
+  @IsString()
+  @IsOptional()
+  timeOut: string;
+
+  @IsString()
+  @IsNotEmpty()
+  userId: string;
 
   @IsString()
   @IsOptional()
   notes: string;
-
 }
