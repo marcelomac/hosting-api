@@ -38,6 +38,9 @@ export class VisitService {
 
   async findAll() {
     const response = await this.prisma.visit.findMany({
+      orderBy: {
+        createdAt: 'desc',
+      },
       include: {
         Person: true,
         Department: true,
