@@ -1,5 +1,5 @@
 # Etapa 1: build da aplicação
-FROM node:20-alpine AS builder
+FROM node:24-alpine AS builder
 
 WORKDIR /app
 
@@ -18,7 +18,7 @@ RUN npx prisma generate
 RUN npm run build
 
 # Etapa 2: imagem final enxuta
-FROM node:20-alpine
+FROM node:24-alpine
 
 WORKDIR /app
 
@@ -47,5 +47,5 @@ COPY package*.json ./
 # Executa migrações e inicia a API
 CMD npx prisma migrate deploy && node dist/main.js
 
-# Expor a porta 3001 para acessar a aplicação
-EXPOSE 3001
+# Expor a porta 3003 para acessar a aplicação
+EXPOSE 3003
