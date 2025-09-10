@@ -9,7 +9,9 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 import { join } from 'path';
 
 async function bootstrap() {
-  const app = await NestFactory.create<NestExpressApplication>(AppModule);
+  const app = await NestFactory.create<NestExpressApplication>(AppModule, {
+    cors: false,
+  });
   /**
    * https://docs.nestjs.com/security/cors
    */
@@ -20,43 +22,43 @@ async function bootstrap() {
   // });
 
   // Defina o range de IPs permitido
-  const allowedOriginPattern = /^http:\/\/192\.168\.(4|5|6)\.\d{1,3}$/;
+  // const allowedOriginPattern = /^http:\/\/192\.168\.(4|5|6)\.\d{1,3}$/;
 
   // Defina os endereços locais permitidos
-  const allowedLocalOrigins = [
-    'http://127.0.0.1:5173',
-    'http://127.0.0.1:5174',
-    'http://127.0.0.1',
-    'http://localhost:5173',
-    'http://localhost:5174',
-    'http://localhost:80',
-    'http://192.168.4.21:5173',
-    'http://192.168.4.21',
-    'http://192.168.4.43',
-    'http://192.168.4.43:5173',
-    'http://192.168.4.43:5174',
-    'http://192.168.4.43:80',
-    'http://lord.service',
-  ];
+  // const allowedLocalOrigins = [
+  //   'http://127.0.0.1:5173',
+  //   'http://127.0.0.1:5174',
+  //   'http://127.0.0.1',
+  //   'http://localhost:5173',
+  //   'http://localhost:5174',
+  //   'http://localhost:80',
+  //   'http://192.168.4.21:5173',
+  //   'http://192.168.4.21',
+  //   'http://192.168.4.43',
+  //   'http://192.168.4.43:5173',
+  //   'http://192.168.4.43:5174',
+  //   'http://192.168.4.43:80',
+  //   'http://lord.service',
+  // ];
   // const allowedLocalOrigins = ['http://192.168.6.174'];
 
-  app.enableCors({
-    origin: function (origin, callback) {
-      // Verifica se a origem corresponde ao padrão da expressão regular
-      if (
-        allowedLocalOrigins.includes(origin) ||
-        allowedOriginPattern.test(origin) ||
-        !origin
-      ) {
-        callback(null, true);
-      } else {
-        callback(new Error('CORS policy violation'));
-      }
-    },
-    credentials: true,
-    allowedHeaders: 'Authorization, Content-Type',
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  });
+  // app.enableCors({
+  //   origin: function (origin, callback) {
+  //     // Verifica se a origem corresponde ao padrão da expressão regular
+  //     if (
+  //       allowedLocalOrigins.includes(origin) ||
+  //       allowedOriginPattern.test(origin) ||
+  //       !origin
+  //     ) {
+  //       callback(null, true);
+  //     } else {
+  //       callback(new Error('CORS policy violation'));
+  //     }
+  //   },
+  //   credentials: true,
+  //   allowedHeaders: 'Authorization, Content-Type',
+  //   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  // });
 
   /**
    * httpAdapter é um objeto que contém métodos para lidar com requisições HTTP.
