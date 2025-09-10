@@ -16,6 +16,8 @@ model Visit {
   timeOut      String?
   notes        String?
   userId       String?
+  title        String?
+  subTitle     String?
   createdAt    DateTime   @default(now())
   updatedAt    DateTime   @updatedAt
   Person       Person     @relation(fields: [personId], references: [id])
@@ -27,7 +29,9 @@ model Person {
   id             String   @id @default(cuid())
   name           String
   documentType   String?
-  documentNumber String? 
+  documentNumber String?
+  title          String?
+  subTitle       String?
   sex            String
   phone          String?
   email          String?

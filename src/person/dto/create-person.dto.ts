@@ -20,6 +20,14 @@ export class CreatePersonDto {
   documentNumber: string;
 
   @IsString()
+  @IsOptional()
+  title: string;
+
+  @IsString()
+  @IsOptional()
+  subTitle: string;
+
+  @IsString()
   @IsNotEmpty()
   sex: string;
 
