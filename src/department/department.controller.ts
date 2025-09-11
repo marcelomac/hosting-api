@@ -17,8 +17,8 @@ import { Roles } from 'src/user/user.service';
 import { JwtGuard } from 'src/guards/jwt.guard';
 import { RoleGuard } from 'src/guards/role.guard';
 
-@Role(Roles.ADMIN)
-@UseGuards(JwtGuard, RoleGuard)
+// @Role(Roles.ADMIN)
+// @UseGuards(JwtGuard, RoleGuard)
 @Controller('department')
 export class DepartmentController {
   constructor(private readonly departmentService: DepartmentService) {}
