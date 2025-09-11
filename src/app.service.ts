@@ -16,6 +16,9 @@ export class AppService {
     private userService: UserService,
   ) {}
 
+    getHello(): string {
+    return 'Hello World!';
+  }
   // async queryData(
   //   table: string,
   //   operation: string,
