@@ -18,9 +18,9 @@ import { JwtGuard } from 'src/guards/jwt.guard';
 import { RoleGuard } from 'src/guards/role.guard';
 import { debugLog } from 'src/helpers/utils/debugLog';
 
-@Controller('visit')
 @Role(Roles.ADMIN)
 @UseGuards(JwtGuard, RoleGuard)
+@Controller('visit')
 export class VisitController {
   constructor(private readonly visitService: VisitService) {}
 
