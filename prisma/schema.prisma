@@ -89,3 +89,8 @@ model SysLog {
   file      String
   createdAt DateTime @default(now())
 }
+
+model Setting {
+  id        String @id @default(cuid())
+  labelHtml String
+}
