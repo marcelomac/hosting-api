@@ -67,8 +67,13 @@ export class SettingService {
   }
 
   async patchSetting(field: string, value: string) {
+    console.log('field: ', field);
+    console.log('value: ', value);
+
     const setting = await this.prismaService.setting.findFirst();
     const data = { [field]: value };
+
+    console.log('setting: ', setting);
 
     await this.prismaService.setting.update({
       where: { id: setting.id },

@@ -1,7 +1,4 @@
-import {
-  Logger,
-  Module,
-} from '@nestjs/common';
+import { Logger, Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DepartmentModule } from './department/department.module';
@@ -28,6 +25,8 @@ import { PersonService } from './person/person.service';
 import { DepartmentService } from './department/department.service';
 import { SysLogModule } from './syslog/syslog.module';
 import { SysLogService } from './syslog/syslog.service';
+import { SettingService } from './setting/setting.service';
+import { SettingModule } from './setting/setting.module';
 
 @Module({
   imports: [
@@ -47,6 +46,7 @@ import { SysLogService } from './syslog/syslog.service';
     UserLogModule,
     CommonModule,
     ChatModule,
+    SettingModule,
     ScheduleModule.forRoot(),
   ],
   controllers: [AppController],
@@ -59,6 +59,7 @@ import { SysLogService } from './syslog/syslog.service';
     PrismaService,
     JwtService,
     UserLogService,
+    SettingService,
     SysLogService,
     VisitService,
     PersonService,
