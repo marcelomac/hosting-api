@@ -42,6 +42,7 @@ model Person {
 model Department {
   id              String  @id @default(cuid())
   name            String
+  shortName       String?
   responsibleName String?
   description     String?
   phone1          String?
