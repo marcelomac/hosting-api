@@ -30,7 +30,6 @@ export class PersonService {
     return person;
   }
 
-  
   async findAll() {
     const response = await this.prisma.person.findMany({
       orderBy: { name: 'asc' },
@@ -65,7 +64,18 @@ export class PersonService {
     return person;
   }
 
-  
+  async findLastCreated() {
+    const person = await this.prisma.person.findFirst({
+      orderBy: { createdAt: 'desc' },
+    });
+
+    if (!person) {
+      return null;
+    }
+
+    return person;
+  }
+
   update(id: string, updatePersonDto: UpdatePersonDto) {
     return this.prisma.person.update({
       where: { id },
