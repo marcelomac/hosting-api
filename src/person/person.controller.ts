@@ -48,6 +48,14 @@ export class PersonController {
     return null;
   }
 
+  @Get('/cpf/:cpf')
+  findPersonByCpf(@Param('cpf') cpf: string) {
+    if (cpf) {
+      return this.personService.findPersonByCpf(cpf);
+    }
+    return null;
+  }
+
   @Patch(':id')
   update(@Param('id') id: string, @Body() updatePersonDto: UpdatePersonDto) {
     return this.personService.update(id, updatePersonDto);

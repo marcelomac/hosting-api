@@ -38,6 +38,13 @@ export class PersonService {
     return response;
   }
 
+  async findPersonByCpf(cpf: string) {
+    const response = await this.prisma.person.findFirst({
+      where: { documentNumber: cpf },
+    });
+    return response;
+  }
+
   async findPersonById(id: string) {
     const response = await this.prisma.person.findUniqueOrThrow({
       where: { id },
