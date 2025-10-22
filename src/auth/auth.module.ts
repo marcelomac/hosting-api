@@ -12,7 +12,7 @@ dotenv.config();
   imports: [
     JwtModule.register({
       secret: process.env.SECRET_KEY_JWT,
-      signOptions: { expiresIn: process.env.TIME_EXPIRES_JWT },
+      signOptions: { expiresIn: process.env.TIME_EXPIRES_JWT || '8h' },
     }),
   ],
   controllers: [AuthController],
