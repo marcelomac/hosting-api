@@ -34,12 +34,12 @@ export function debugLog(
       const columnNumber = match[3];
       const relativePath = path.relative(process.cwd(), fullPath);
       //console.log(
-        `${variableName}: ${value} - ${relativePath} (line: ${lineNumber}, column: ${columnNumber})`,
-      );
+      //   `${variableName}: ${value} - ${relativePath} (line: ${lineNumber}, column: ${columnNumber})`,
+      // );
     } else {
       //console.log(
-        `${variableName}: ${variableValue} - Could not determine the file path from the stack trace`,
-      );
+      //   `${variableName}: ${variableValue} - Could not determine the file path from the stack trace`,
+      // );
     }
   }
 }
