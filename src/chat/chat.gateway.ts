@@ -22,16 +22,16 @@ export class ChatGateway {
     @MessageBody() data: string,
     @ConnectedSocket() client: Socket,
   ): void {
-    console.log('Message received: ', data);
+    //console.log('Message received: ', data);
     client.emit('message', data); // Broadcast the message to all clients
   }
 
   //handleConnection(client: Socket, ...args: any[]) {
   handleConnection(client: Socket) {
-    console.log('Client connected: ', client.id);
+    //console.log('Client connected: ', client.id);
   }
 
   handleDisconnect(client: Socket) {
-    console.log('Client disconnected: ', client.id);
+    //console.log('Client disconnected: ', client.id);
   }
 }

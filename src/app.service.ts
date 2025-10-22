@@ -16,7 +16,7 @@ export class AppService {
     private userService: UserService,
   ) {}
 
-    getHello(): string {
+  getHello(): string {
     return 'Hello World!';
   }
   // async queryData(
@@ -46,7 +46,7 @@ export class AppService {
   //     const number = moviment.number.toString().padStart(5, '0');
 
   //     const newNumber = (nStart++).toString().padStart(5, '0');
-  //     console.log('number: ', number, '- new number: ', newNumber);
+  //     //console.log('number: ', number, '- new number: ', newNumber);
 
   //     return await this.prisma.moviment.update({
   //       where: {

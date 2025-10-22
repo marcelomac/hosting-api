@@ -17,7 +17,7 @@ export async function cloneTableRecord(
       throw new Error(`Record with id ${id} not found in table ${table}`);
     }
 
-    console.log('recordToClone: ', recordToClone);
+    //console.log('recordToClone: ', recordToClone);
 
     delete recordToClone.id;
 

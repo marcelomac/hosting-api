@@ -236,7 +236,7 @@ export class OrdinanceService {
         query = `&q=${part1}%2F${year}`;
       }
 
-      console.log('query: ', query);
+      //console.log('query: ', query);
 
       debugLog('formattedStartDate', formattedStartDate);
       debugLog('formattedEndDate', formattedEndDate);
@@ -357,6 +357,6 @@ export class OrdinanceService {
       });
     }
 
-    console.log('Importação finalizada');
+    //console.log('Importação finalizada');
   }
 }

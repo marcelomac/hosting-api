@@ -10,7 +10,7 @@ export async function scrapingDOM(url: string) {
   const page = await browser.newPage();
 
   try {
-    console.log('url: ', url);
+    //console.log('url: ', url);
     await page.goto(url, { waitUntil: 'networkidle2', timeout: 30000 });
 
     const portarias = await page.evaluate(() => {

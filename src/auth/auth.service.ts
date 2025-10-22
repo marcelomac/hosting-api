@@ -31,18 +31,18 @@ export class AuthService {
         role: Roles.ADMIN,
       };
 
-      console.log('1-payload: ', payload);
+      //console.log('1-payload: ', payload);
 
       // cria e assina o token que será retornado para o cliente:
       token = this.jwtService.sign(payload);
 
-      console.log('2-token: ', token);
+      //console.log('2-token: ', token);
     } else {
       const user = await this.prisma.user.findUniqueOrThrow({
         where: { login },
       });
 
-      console.log('3-user: ', user);
+      //console.log('3-user: ', user);
 
       if (!user) {
         throw new UnauthorizedError('Login e/ou senha inválidos.');
@@ -50,7 +50,7 @@ export class AuthService {
 
       const passwordMatch = bcrypt.compareSync(password, user.password);
 
-      console.log('4-passwordMatch: ', passwordMatch);
+      //console.log('4-passwordMatch: ', passwordMatch);
 
       if (!passwordMatch) {
         throw new UnauthorizedError('Login e/ou senha inválidos.');
@@ -78,7 +78,7 @@ export class AuthService {
         role: user.role,
       };
 
-      console.log('5-payload: ', payload);
+      //console.log('5-payload: ', payload);
       // cria e assina o token que será retornado para o cliente:
       token = this.jwtService.sign(payload);
     }

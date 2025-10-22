@@ -8,11 +8,11 @@ export function debugLog(
   const debug = process.env.DEBUG === 'true' ? true : false;
 
   if (debug || showThis) {
-    console.log('-'.repeat(50));
+    //console.log('-'.repeat(50));
 
     const stack = new Error().stack;
     if (!stack) {
-      console.log('Stack trace is not available');
+      //console.log('Stack trace is not available');
       return;
     }
 
@@ -33,11 +33,11 @@ export function debugLog(
       const lineNumber = match[2];
       const columnNumber = match[3];
       const relativePath = path.relative(process.cwd(), fullPath);
-      console.log(
+      //console.log(
         `${variableName}: ${value} - ${relativePath} (line: ${lineNumber}, column: ${columnNumber})`,
       );
     } else {
-      console.log(
+      //console.log(
         `${variableName}: ${variableValue} - Could not determine the file path from the stack trace`,
       );
     }

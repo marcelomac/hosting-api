@@ -66,7 +66,7 @@ export class PersonService {
       return null;
     }
 
-    console.log('person.data: ', person.name);
+    //console.log('person.data: ', person.name);
 
     return person;
   }
